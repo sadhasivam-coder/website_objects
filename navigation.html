@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <!--Link's for connecting-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<script>
+  function change(data)
+  {
+    document.getElementById(data).style.color='royalblue';
+    var x=['opt1','opt2','opt3','opt4','opt0'];
+    const index = x.indexOf(data);
+    if (index > -1) {
+      x.splice(index, 1);
+    }
+    document.getElementById(x[0]).style.color='white';
+    document.getElementById(x[1]).style.color='white';
+    document.getElementById(x[2]).style.color='white';
+    document.getElementById(x[3]).style.color='white';
+  }
+</script>
+<style> 
+    #navbar
+    {
+        height: 60px;
+        background-color: rgb(28, 28, 28);
+    }
+    body {
+        font-family: "Lato", sans-serif;
+    }
+    #myVideo {
+      width: 100%; 
+    }
+    .sidenav {
+        background-color: rgb(28, 28, 28);
+        overflow-x: hidden;
+        transition: 0.3s;
+        text-align:center;
+    }
+
+    .sidenav a {
+        padding: 12px 12px 12px 32px;
+        text-decoration: none;
+        color: black;
+        display: block;
+        transition: 0.3s;
+        color: white;
+
+    }
+
+    .sidenav a:hover{
+        color: rgb(71, 113, 240);
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        max-height: 450px;
+    }
+</style>
+<script>
+    function s()
+    {
+      if (screen.width>=800)
+      {
+        document.getElementById('opt').style.display='block';
+        document.getElementById('button').style.display='none';
+      }
+      else
+      {
+        document.getElementById('opt').style.display='none';
+        document.getElementById('button').style.display='block';
+      }
+    }
+</script>
+<body style="margin:0;font-family: 'Space Grotesk', sans-serif;" onload="s()" onresize="s()">
+    <!--Navbar Creating-->
+    <div id="navbar" style="width: 100%;">
+        <div style="left: 10px;float: left;padding-top: 18px;padding-left: 30px;">
+          <a href="#" style="text-decoration: none;font-size: 1.2em;color: royalblue;" id="opt0" onclick="change('opt0')">Space</a>
+        </div>
+        <div style="padding-top: 18px;color: white;" id="opt">
+          <a href="#" style="text-decoration: none;margin-left: 40px;padding-left: 20px;font-size: 1.2em;color: white;" onclick="change('opt1')" id="opt1">
+            Article
+          </a>
+          <a href="#" style="text-decoration: none;margin-left: 40px;padding-left: 20px;font-size: 1.2em;color: white;" id="opt2" onclick="change('opt2')">
+            Account
+          </a>
+          <a href="#" style="text-decoration: none;margin-left: 40px;padding-left: 20px;font-size: 1.2em;color: white;" id="opt3" onclick="change('opt3')">
+            Explore
+          </a>
+          <a href="#" style="text-decoration: none;margin-left: 40px;padding-left: 20px;font-size: 1.2em;color: white;" id="opt4" onclick="change('opt4')">
+            Upload
+          </a>
+        </div>
+        <span id="button" style="right: 10px;position: absolute;margin-top: 15px;">
+          <span onclick="openNav()" style="background-color: none;color: white;" class="btn">&#9776;</span>
+        </span>
+    </div>
+    <div id="mySidenav" class="sidenav" style="height: 100%;width: 0;position: fixed;z-index: 1;top: 0;left: 0;">
+        <div style="padding-top: 40%;color:white;" id='p'>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color: white;">&times;</a>
+        <a href="#" style="font-size: 1.2em;">About</a>
+        <a href="#" style="font-size: 1.2em;">Services</a>
+        <a href="#" style="font-size: 1.2em;">Clients</a>
+        <a href="#" style="font-size: 1.2em;">Contact</a>
+    </div>
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "100%";
+          document.getElementById("p").style.display = "block";
+        }
+        
+        function closeNav() {
+        
+          document.getElementById("p").style.display = "none";
+          document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    </div>
+</body>
+</html>
